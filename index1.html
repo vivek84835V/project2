@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transparent Card</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background-color: #c21b1b59;
+    }
+
+    .card {
+      position: relative;
+      width: 300px;
+      height: 200px;
+      background-color: rgba(255, 255, 255, 0.5);
+      /* Transparent white background */
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      /* Add some shadow for depth */
+
+    }
+
+    div.all {
+      height: 10em;
+      position: relative
+    }
+
+    div.all {
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-right: -50%;
+      transform: translate(-50%, -50%)
+    }
+
+    .content {
+      padding: 20px;
+      color: #333;
+    }
+
+    .button {
+      position: absolute;
+      bottom: 2px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 10px 20px;
+      background-color: transparent;
+      color: #bc39af80;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .flower {
+      width: 50px;
+      height: 50px;
+      background-image: url('pinkpng.png');
+      background-size: cover;
+      position: absolute;
+      animation: fall 5s linear infinite;
+    }
+.text{
+  justify-content: flex-start;
+  display: block;
+  padding-top: 10px;
+  margin-left:15%;
+  font-family: cursive;
+  font-size: xx-large;
+}
+    .my1{
+    display: block;
+    margin-left:32%;
+    margin-right: auto;
+    margin-top: 10%;
+    height: 100px;
+    width: 100px;
+  }
+  .my{
+    display: block;
+    margin-left:0%;
+    margin-right: auto;
+    margin-top: 25%;
+    aspect-ratio: 3/2;
+  }
+
+  h1, p { margin: 0; }
+
+#container {
+    padding: 20px 20px 100px;
+    margin: 50px;
+    position: relative;
+}
+#container h1 {
+    /* has same bg as #container */
+    background: url(img2.png);
+
+    font-size: 12em;
+    font-family: impact;
+    left: 0;
+    line-height: 100%;
+    padding-top: 25px; /* padding + border of div */
+    position: absolute; /* position at top left of #containter to sync bg */
+    text-align: center;
+    top: 0;
+    width: 100%;
+    text-fill-color: transparent; /* not yet supported */
+    background-clip: text; /* not yet supported */
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -moz-text-fill-color: transparent; /* not yet supported */
+    -moz-background-clip: text; /* not yet supported */
+    /* text-shadow: 5px 5px 0px rgba(0,0,0,0.1); */
+}
+    @keyframes fall {
+      0% {
+        transform: translateY(-100vh) rotate(0deg);
+      }
+
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+      }
+    }
+    #cent{
+    display: block;
+    margin-left:25%;
+    align-items: center;
+    text-align: center;
+    padding: 5%;
+    color: #333;
+    position: relative;
+    width: 300px;
+    height: 100px;
+  }
+  .but {
+      position: absolute;
+      transform: translateX(-50%);
+      padding: 10px 30px;
+      margin:auto;
+      background-color: transparent;
+      color: #00000080;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div id="container">  
+    <h1>WELCOME</h1>
+  </div>
+    <img class="my1" src="my2.png">
+    <img class="my" src="my1.png">
+  <div class="all">
+    <div class="card">
+      <div class="content">
+        <h2>HEY</h2>
+        <h5>This web-site I only make for you</h5>
+        <h5>LOVE YOU</h5>
+      </div>
+      <button class="button" onclick="createFlower()">CLICK & MAGIC</button>
+    </div>
+  </div>
+  <div>
+</div>
+  <div id="flowerShower"></div>
+  <script>
+    function createFlower() {
+      const flower = document.createElement('div');
+      flower.classList.add('flower');
+
+      // Set random position
+      const x = Math.random() * window.innerWidth;
+      flower.style.left = x + 'px';
+
+      // Append to the container
+      document.getElementById('flowerShower').appendChild(flower);
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      document.getElementById('flowerShower').addEventListener('click', function () {
+        // On click, create a flower
+        createFlower();
+      });
+    });
+  </script>
+</body>
+
+</html>
